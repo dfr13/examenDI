@@ -1,28 +1,42 @@
 import React from 'react';
 import { Row, Container, Col } from 'react-bootstrap';
-import Libro from './Libro';
-class Ejercicio2 extends React.Component {
+import LibroProps from './LibroProps';
+class Ejercicio2Props extends React.Component {
   constructor(props) {
     super(props);
-    this.listaLibros = [];
-    
+    const elementos = [];
+    this.state = {
+    listaLibros: elementos,
+    };
+    /*this.valorInputTitulo = React.createRef();
+    this.valorInputAutor =React.createRef();
+    this.valorInputFecha = React.createRef();
+    this.valorInputIdioma = React.createRef();
+    this.valorInputPortada = React.createRef();
+    this.valorInputPaginas = React.createRef();*/
   }
   anadir(){
-    localStorage.setItem('titulo', this.valorInputTitulo.value);
-    localStorage.setItem('autor', this.valorInputAutor.value);
-    localStorage.setItem('fecha', this.valorInputFecha.value);
-    localStorage.setItem('paginas', this.valorInputPaginas.value);
-    localStorage.setItem('portada',this.valorInputPortada.value);
-    localStorage.setItem('idioma',this.valorInputIdioma.value);
+    const lista = this.state.listaLibros.concat(
+      <LibroProps
+      titulo={this.valorInputTitulo.value}
+      autor={this.valorInputAutor.value}
+      fecha={this.valorInputFecha.value}
+      paginas={this.valorInputPaginas.value}
+      portada={this.valorInputPortada.value}
+      idioma={this.valorInputIdioma.value}
+      />
+    );
+    this.setState({listaLibros : lista});
+
     
   }
 
   render() {
     return (
       <div id="ej2">
-        <h2>Ejercicio 2</h2>
+        <h2>Ejercicio 2 Con Props</h2>
+        
         <ul>
-            
             <Container>
               <Row>
                 <Col>
@@ -72,20 +86,13 @@ class Ejercicio2 extends React.Component {
               </Row>
               <br />
               <button onClick={() => this.anadir()}>Añadir</button>
+              <br />
+              {this.state.listaLibros}
             </Container>
-            <li>
-              Crea un componente <i>Libro</i> para mostar los elementos que
-              vayas añadiendo. El componente ha de implementar{' '}
-              <a href="https://react-bootstrap.github.io/components/cards/">
-                Card
-              </a>{' '}
-              de React-Bootstrap y mostrar todos los campos añadidos
-              <b> - 1,75 puntos</b>
-            </li>
         </ul>
       </div>
     );
   }
 }
 
-export default Ejercicio2;
+export default Ejercicio2Props;

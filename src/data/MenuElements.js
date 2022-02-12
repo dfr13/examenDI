@@ -1,6 +1,8 @@
 import Ejercicio1 from '../components/Ejercicio1';
 import Ejercicio2 from '../components/Ejercicio2';
 import Ejercicio3 from '../components/Ejercicio3';
+import Ejercicio2Props from '../components/Ejercicio2Props';
+import Libro from '../components/Libro';
 
 export const MenuElements = [
   {
@@ -21,4 +23,18 @@ export const MenuElements = [
     title: 'Ejercicio 3',
     component: Ejercicio3,
   },
+  {
+    id: 4,
+    path:'/libro',
+    title: 'Libro',
+    component: Libro,
+  },
+  {
+    id: 5,
+    path:'/ejercicio2props',
+    title: 'Ejer2Props',
+    component: Ejercicio2Props,
+  },
+
+
 ];
