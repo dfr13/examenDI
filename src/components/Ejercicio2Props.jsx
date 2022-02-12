@@ -4,19 +4,12 @@ import LibroProps from './LibroProps';
 class Ejercicio2Props extends React.Component {
   constructor(props) {
     super(props);
-    const elementos = [];
-    this.state = {
-    listaLibros: elementos,
-    };
-    /*this.valorInputTitulo = React.createRef();
-    this.valorInputAutor =React.createRef();
-    this.valorInputFecha = React.createRef();
-    this.valorInputIdioma = React.createRef();
-    this.valorInputPortada = React.createRef();
-    this.valorInputPaginas = React.createRef();*/
+    this.listaLibros = [];
+  
+
   }
   anadir(){
-    const lista = this.state.listaLibros.concat(
+    this.listaLibros = this.listaLibros.concat(
       <LibroProps
       titulo={this.valorInputTitulo.value}
       autor={this.valorInputAutor.value}
@@ -26,11 +19,8 @@ class Ejercicio2Props extends React.Component {
       idioma={this.valorInputIdioma.value}
       />
     );
-    this.setState({listaLibros : lista});
-
-    
+    this.setState({lista : this.listaLibros});
   }
-
   render() {
     return (
       <div id="ej2">
@@ -87,7 +77,7 @@ class Ejercicio2Props extends React.Component {
               <br />
               <button onClick={() => this.anadir()}>Añadir</button>
               <br />
-              {this.state.listaLibros}
+              {this.listaLibros}
             </Container>
         </ul>
       </div>
