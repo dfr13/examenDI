@@ -1,8 +1,7 @@
 import React from 'react';
-import './style.css';
 import Header from './components/Header';
-import { MenuElements } from './data/MenuElements';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import {MenuHeader} from './data/MenuHeader'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 export default function App() {
   return (
@@ -16,7 +15,7 @@ export default function App() {
       tener el nombre examen-react-Nombre-Apellido1, donde nombre y apellido
       son los tuyos.
     </p>
-    {MenuElements.map((item) => {
+    {MenuHeader.map((item) => {
       return (
         <Route
           key={item.id}
@@ -30,3 +29,4 @@ export default function App() {
   </Router>
   );
 }
+

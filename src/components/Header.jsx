@@ -1,16 +1,15 @@
 import React from 'react';
 import { Navbar, Container, Nav, Offcanvas } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { MenuElements } from '../data/MenuElements';
-
-class Header extends React.Component {
-  constructor(props) {
+import {Link} from 'react-router-dom';
+import{ MenuHeader} from '../data/MenuHeader';
+class Header extends React.Component{
+  constructor(props){
     super(props);
   }
 
-  render() {
-    return (
-<Navbar bg="light" expand={false}>
+  render (){
+    return(
+      <Navbar bg="light" expand={false}>
   <Container fluid>
     <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
     <Navbar.Toggle aria-controls="offcanvasNavbar" />
@@ -23,14 +22,13 @@ class Header extends React.Component {
         <Offcanvas.Title id="offcanvasNavbarLabel">Offcanvas</Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body>
-        <Nav className="justify-content-end flex-grow-1 pe-3">
-        {MenuElements.map((item) => {
-                return (
-                  <Nav.Link as={Link} to={item.path}>
-                    {item.title}
-                  </Nav.Link>
-                );
-              })}
+      <Nav className="justify-content-end flex-grow-1 pe-3">
+      {MenuHeader.map((item) =>{
+        return (
+          <Nav.Link as={Link} to={item.path}>
+          {item.title}</Nav.Link>
+        );
+      })}  
         </Nav>
       </Offcanvas.Body>
     </Navbar.Offcanvas>

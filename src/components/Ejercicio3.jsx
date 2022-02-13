@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Api from './Api'
 class Ejercicio3 extends React.Component {
   constructor(props) {
     super(props);
@@ -44,6 +44,7 @@ class Ejercicio3 extends React.Component {
             <b> - 1 punto</b>
           </li>
         </ol>
+      <Api />
       </div>
     );
   }
