@@ -1,5 +1,6 @@
 import React from 'react';
 import {Carousel } from 'react-bootstrap';
+import uuid from 'react-uuid';
 class Api extends React.Component{
   constructor(props) {
     super(props);
@@ -10,13 +11,13 @@ class Api extends React.Component{
     };
   }
 
-  async componetDidMount(){
-    const response = await fetch (
-      'https://www.etnassoft.com/api/v1/get/?category=libros_programacion&language=spanish'
+  async componentDidMount() {
+    const response = await fetch(
+      'https://www.etnassoft.com/api/v1/get/?category=libros_programacion&lang=español&num_items=5'
     );
     const responseData = await response.json();
     this.setState({
-      tableData: responseData.data,
+      tableData: responseData
     });
   }
 
@@ -31,11 +32,11 @@ class Api extends React.Component{
     <img
       className="d-block w-100"
       src={item.cover}
-      alt="First slide"
+      alt={item.title}
     />
-    <Carousel.Caption>
-      <h3>{item.title}</h3>
-      <p>{item.author}</p>
+    <Carousel.Caption key={uuid()}>
+      <h1>{item.title}</h1>
+      <h3>{item.author}</h3>
     </Carousel.Caption>
   </Carousel.Item>
       );
